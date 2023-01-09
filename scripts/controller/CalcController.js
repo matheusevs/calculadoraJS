@@ -470,8 +470,21 @@ class CalcController {
 
         if(value.toString().length > 10){
 
-            this.setError();
-            return false;
+            if(!isNaN(value)) {
+
+                if(parseInt(value) != parseFloat(value)) {
+            
+                    value = value.toPrecision(10);
+                    
+                } else {
+
+                    this.setError();
+                    return false;
+    
+                }
+            
+            } 
+
 
         }
 
